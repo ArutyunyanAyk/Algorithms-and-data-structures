@@ -1,0 +1,12 @@
+﻿  Source.cpp
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(10,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(13,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(16,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(30,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(38,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(45,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(75,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(83,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\STL_Task_1\Source.cpp(99,20): warning C4018: <: несоответствие типов со знаком и без знака
+  LINK : не найден или не выполнена сборка C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\Debug\STL_Task_1.exe при последней инкрементной компоновке; выполняется полная компоновка
+  STL_Task_1.vcxproj -> C:\Algorithms-and-data-structures\Algorithms-and-data-structures\STL_Task_1\Debug\STL_Task_1.exe
