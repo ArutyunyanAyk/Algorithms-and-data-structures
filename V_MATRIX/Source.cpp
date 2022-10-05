@@ -225,7 +225,7 @@ int main()
         case 5:
         {
             int t1 = 0;
-            std::cout << "Tr matrix 1 type <1>, tr matrix 2 type <2>";
+            std::cout << "Transpose matrix 1 type <1>, tr matrix 2 type <2>";
             std::cin >> t1;
             if (t1 == 1)
             {
