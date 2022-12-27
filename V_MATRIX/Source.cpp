@@ -264,7 +264,7 @@ int main()
         }
         default:
         {
-            std::cout << "ERROR: you imput wrong mode number pleas impu1 from 1 to 6!!!";
+            std::cout << "ERROR: you imput wrong mode number please imput from 1 to 6!!!";
 
             break;
         }
