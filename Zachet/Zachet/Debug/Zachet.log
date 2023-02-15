@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\C++\Zachet\Zachet\Source.cpp(151,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\C++\Zachet\Zachet\Source.cpp(150): message : во время компиляции функции-члена класс шаблон "void Stack<int>::print(void)"
+C:\C++\Zachet\Zachet\Source.cpp(172): message : выполняется компиляция ссылки на экземпляр шаблон функции "void Stack<int>::print(void)"
+C:\C++\Zachet\Zachet\Source.cpp(167): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "Stack<int>"
+  Zachet.vcxproj -> C:\C++\Zachet\Debug\Stack.exe

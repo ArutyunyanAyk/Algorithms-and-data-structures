@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\C++\Zachet\Qeue\Source.cpp(150,25): warning C4018: <: несоответствие типов со знаком и без знака
+C:\C++\Zachet\Qeue\Source.cpp(147): message : во время компиляции функции-члена класс шаблон "void Queue<int>::queue_fix(void)"
+C:\C++\Zachet\Qeue\Source.cpp(48): message : выполняется компиляция ссылки на экземпляр шаблон функции "void Queue<int>::queue_fix(void)"
+C:\C++\Zachet\Qeue\Source.cpp(164): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "Queue<int>"
+  Qeue.vcxproj -> C:\C++\Zachet\Debug\Queue.exe
