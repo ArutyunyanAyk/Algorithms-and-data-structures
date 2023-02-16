@@ -11,7 +11,7 @@ class CNode
 
 	CNode<Type>* next;
 public:
-	CNode(int a)
+	CNode(Type a)
 	{
 		data = a;
 		next = nullptr;
@@ -198,6 +198,16 @@ public:
 		}
 	}
 
+	Type get_last_data()
+	{
+		return tail->get_data();
+	}
+
+	Type get_first_data()
+	{
+		return head->get_data();
+	}
+
 	void printl()
 	{
 		CNode<Type>* h = head;
@@ -223,6 +233,117 @@ public:
 	{
 		clear();
 	}
+};
+
+template <class Type>
+
+class Queue
+{
+	CList <Type> l1;
+	size_t size;
+
+public:
+	Queue()
+	{		
+		size = 0;
+	}
+
+	Type Top()
+	{
+		if (is_empty())
+		{
+			throw std::logic_error("is_empty");
+		}
+
+		return l1.get_first_data();
+	}
+
+	void pop()
+	{
+		if (is_empty())
+		{
+			throw std::logic_error("is_empty");
+		}
+
+		l1.pop_front();
+	}
+
+	void push(int a)
+	{
+		l1.push_back(a);
+	}
+
+	bool is_empty()
+	{
+		return l1.is_empty();
+	}
+
+	void print()
+	{
+		l1.printl();
+	}
+
+	~Queue()
+	{
+		l1.clear();
+	}
+
+};
+
+template <class Type>
+
+class Stack
+{
+	CList <Type> l2;
+	size_t size;
+public:
+	Stack()
+	{
+		size = 0;
+	}
+
+	Type Top()
+	{
+		if (is_empty())
+		{
+			throw std::logic_error("is_empty");
+		}
+
+		return l2.get_last_data();
+	}
+
+	void pop()
+	{
+		if (is_empty())
+		{
+			throw std::logic_error("is_empty");
+		}
+
+		l2.pop_back();
+	}
+
+	
+	void push(int a)
+	{
+		l2.push_back(a);
+	}
+
+	bool is_empty()
+	{
+		return l2.is_empty();
+	}
+
+
+	void print()
+	{
+		l2.printl();
+	}
+
+	~Stack()
+	{
+		l2.clear();
+	}
+
 };
 
 int main()
