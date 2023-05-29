@@ -1,156 +1,207 @@
 #include <iostream>
-template <class  Type>
+#include <ostream>
+template <class Type> 
+class Tree;
 
-
+template <class Type>
 class CNode
 {
+
 	Type data;
-	CNode* Left;
-	CNode* Right;
+	CNode<Type>* left;
+	CNode<Type>* right;
 
-	
 public:
-	CNode(Type a)
+	CNode() 
 	{
-		data = a;
-		Left = nullptr;
-		Right = nullptr;
+		data = NULL;
+		left = nullptr;
+		right = nullptr;
+	}
+    
+
+	CNode(Type val)
+	{
+		data = val;
+		left = nullptr;
+		right = nullptr;
 	}
 
-	void set_left(CNode<Type>* n)
-	{
-		Left = n;
-	}
+	friend class Tree<Type>;
 
-	void set_right(CNode<Type>* n)
-	{
-		Right = n;
-	}
-
-	CNode<Type>* get_left()
-	{
-		return Left;
-	}
-
-	Type get_right()
-	{
-		return Right;
-	}
-
-	Type get_data()
+	Type get_data() 
 	{
 		return data;
 	}
 
-	void print()
-	{
-		std::cout << data << "->";
-	}
-
 };
 
-template <class  Type>
-
-class Tree
+template <class Type>
+class Tree 
 {
+	CNode <Type>* root;
 
-	CNode <Type>* Root;
+
 public:
 
-	Tree()
+	Tree() 
 	{
-		Root = nullptr;
+		root = nullptr;
 	}
 
-	void insertCNode(Type cnode)
+	void add(CNode<Type>* node) 
 	{
-
-		CNode<Type>* root_copy = new CNode<Type>(Root);
-
-
-		if (Root == nullptr)
+		if (root == nullptr)
 		{
-			Root = cnode;
+			root = node;
 		}
 		else
 		{
-			int f = 0;
-			while (f != 1) 
+			CNode<Type>* cur = root;
+			while (cur->left != node && cur->right != node)
 			{
-				if (cnode < root_copy)
+				if (node->data > cur->data && cur->right == nullptr)
 				{
-					if (root_copy->get_left() == nullptr)
+					cur->right = node;
+				}
+				else
+				{
+					if (node->data < cur->data && cur->left == nullptr)
 					{
-						root_copy->set_left(cnode);
-
-						f = 1;
+						cur->left = node;
 					}
 					else
 					{
-						if (root_copy->get_right() == nullptr)
+						if (node->data > cur->data)
 						{
-							root_copy->set_right(cnode)
-
-								f = 1;
+							cur = cur->right;
 						}
 						else
 						{
-							root_copy->set_right(root_copy->get_right());
+							cur = cur->left;
 						}
 					}
+				}
 
+			}
+		}
+	}
+
+	void add(Type value)
+	{
+		CNode<Type>* node = new CNode<Type>(value);
+
+		add(node);
+	}
+
+	CNode<Type>* find(Type value) 
+	{
+		CNode<Type>* cur = root;
+	    
+		if (root->data == value)
+		{
+			return root;
+		}
+
+		while (cur->left != nullptr || cur->right != nullptr)
+		{
+			if (cur->right->data == value)
+			{
+				return cur->right;
+			}
+			else
+			{
+				if (cur->left->data == value)
+				{
+					return cur->left;
+				}
+				else
+				{
+					if (value > cur->data)
+					{
+						cur = cur->right;
+					}
+					else
+					{
+						cur = cur->left;
+					}
+				}
+			}
+
+		}
+		return nullptr;
+	}
+
+	void destroy(Type value)
+	{
+		CNode<Type>* cur = root;
+		CNode<Type>* delnode = find(value);
+
+		while (cur->right != delnode && cur->left != delnode)
+		{
+			if (value > cur->data)
+			{
+				cur = cur->right;
+			}
+			else
+			{
+				cur = cur->left;
+			}
+		}
+
+
+
+		if (cur->right == delnode)
+		{
+			if (delnode->right == nullptr)
+			{
+				cur->right = delnode->left;
+				return;
+			}
+			else
+			{
+				cur->right = delnode->right;
+				if (delnode->left != nullptr)
+				{
+					add(delnode->left);
+				}				
+			}			
+		}
+		else
+		{
+			if (delnode->right == nullptr)
+			{
+				cur->left = delnode->left;
+				return;
+			}
+			else
+			{
+				cur->left = delnode->right;
+				if (delnode->left != nullptr)
+				{
+					add(delnode->left);
 				}
 			}
 		}
 
-	}
-
-	bool findNode(Type cnode)
-	{
-		CNode<Type>* root_copy = new CNode<Type>(Root);
-
-
-		if (cnode == Root)
-		{
-			return true;
-		}
-		else
-		{
-			if (cnode == root_copy->get_right() || cnode == root_copy->get_left())
-			{
-				return true;
-			}
-			else
-			{
-				root_copy->set_right(root_copy->get_right());
-			}
-			
-		}
-	}
-
-	DestroyCNode(CNode* cnode)
-	{
-		if(cnode)
-		{
-
-		}
-	}
-
-	void printl()
-	{
-		
 
 	}
-
-private:
 
 };
-int main()
-{
-	Tree<int> a;
 
-	a.insertCNode(1);
-
-	
-    
-}
+//int main() 
+//{
+//
+//	Tree<int> T;
+//
+//	T.add(5);
+//	T.add(2);
+//	T.add(4);
+//	T.add(6);
+//	T.add(8);
+//	T.destroy(6);
+//
+//	std::cout << T.find(4)->get_data();
+//
+//	return 0;
+//}
